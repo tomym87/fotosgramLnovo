@@ -1,0 +1,38 @@
+<ion-header [translucent]="true" no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="logo-angular"></ion-icon>    </ion-buttons>
+    <ion-title>
+      Aplicacion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+
+  <!--refresher-->
+
+<ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
+  <ion-refresher-content
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+  </ion-refresher-content>
+</ion-refresher>
+
+
+<!-- Posts-->
+<app-posts [posts]="posts"></app-posts>
+
+<!--Infinite Scroll-->
+<ion-infinite-scroll [disabled]='!habilitadoIS'
+                    threshold="100px" 
+                    (ionInfinite)="siguientes($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Cargando mas datos...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-content>
