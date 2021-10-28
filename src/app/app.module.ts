@@ -12,6 +12,9 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +26,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     IonicStorageModule.forRoot()
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Camera, {provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
